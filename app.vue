@@ -2,7 +2,6 @@
   <br>
   <UInput v-model="searchValue" />
   <br>
-
   <template v-if="searchValue == ''">
     <div v-for="file in initialItems">
       <img :src="`${baseUrl}${file}`">
