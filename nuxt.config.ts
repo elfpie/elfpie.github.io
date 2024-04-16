@@ -5,7 +5,6 @@ export default defineNuxtConfig({
     '@nuxt/fonts',
     '@nuxt/ui',
     '@vueuse/nuxt',
-    'nuxt-auth-utils',
   ],
 
   hub: {
