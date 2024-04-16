@@ -59,6 +59,10 @@ const active = useState()
     border-width: 1.15px;
     border-color: rgba(255, 255, 255, 0.1)
   }
+
+  .masonry-container {
+    padding-top: 1.2rem;
+  }
 }
 
 @media screen and (min-width: 1024px) {
