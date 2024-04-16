@@ -1,45 +1,31 @@
-<template>
-  <br>
-  <UInput v-model="searchValue" />
-  <br>
-
-  <template v-if="searchValue == ''">
-    <div v-for="file in initialItems">
-      <img :src="`${baseUrl}${file}`">
-      <br>
-    </div>
-  </template>
-  <template v-else>
-    <div v-for="file in searchedItems">
-    {{ file .item}}
-      <img :src="`${baseUrl}${file.item}`">
-      <br>
-    </div>
-  </template>
-</template>
-
 <script setup lang="ts">
-import Fuse from 'fuse.js';
-
-const baseUrl = "https://raw.githubusercontent.com/snipe/animated-gifs/master/";
-const fileList = await fetch("/files.txt")
-const response = await fileList.text()
-const lines = response.split(/\r?\n/)
-const searchValue = ref('')
-const listSize = 20
-
-function getMultipleRandom(arr: unknown[], num: number) {
-  const shuffled = [...arr].sort(() => 0.5 - Math.random());
-
-  return shuffled.slice(0, num);
-}
-
-const options = {}
-const fuse = new Fuse(lines, options)
-
-const initialItems = getMultipleRandom(lines, listSize)
-const searchedItems = computed(() => {
-  return fuse.search(searchValue.value).slice(0, listSize)
+useHead({
+  link: [
+    { rel: 'icon', href: '/favicon.ico' },
+  ],
+  htmlAttrs: {
+    lang: 'en',
+  },
 })
 
+const title = 'Elfpie Gifs'
+const description = 'Gifs gifs gifs! Gifs? Gifs?'
+
+useSeoMeta({
+  title,
+  ogTitle: title,
+  description,
+  ogDescription: description,
+  ogSiteName: 'Gifs gifs gifs! Gifs? Gifs?',
+  ogImage: 'https://elfpie.github.io/social-card.jpeg',
+  twitterCard: 'summary_large_image',
+})
 </script>
+
+<template>
+  <div class="bg-black min-h-[100dvh] overflow-x-hidden relative" :class="{ 'flex flex-col md:block': $router.currentRoute.value.fullPath !== '/' }">
+    <UNotifications />
+    <NuxtPage />
+    <ThumbnailList :class="$router.currentRoute.value.fullPath !== '/' ? 'opacity-100 z-[9999]' : 'opacity-0 z-[-1]'" />
+  </div>
+</template>

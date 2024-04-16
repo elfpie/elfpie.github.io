@@ -1,22 +1,32 @@
 {
-  "name": "nuxt-app",
-  "private": true,
+  "name": "nuxthub-starter",
   "type": "module",
+  "private": true,
   "scripts": {
-    "build": "nuxt build",
     "dev": "nuxt dev",
-    "generate": "nuxt generate",
+    "build": "nuxt build",
     "preview": "nuxt preview",
-    "postinstall": "nuxt prepare"
-  },
-  "devDependencies": {
-    "@nuxt/devtools": "latest",
-    "@nuxt/ui": "latest",
-    "nuxt": "^3.7.4",
-    "vue": "^3.3.4",
-    "vue-router": "^4.2.5"
+    "postinstall": "nuxt prepare",
+    "lint": "eslint .",
+    "typecheck": "nuxt typecheck"
   },
   "dependencies": {
-    "fuse.js": "^6.6.2"
+    "@nuxt/fonts": "^0.6.1",
+    "@nuxt/ui": "^2.15.1",
+    "@nuxthub/core": "^0.5.4",
+    "@vueuse/core": "^10.9.0",
+    "@vueuse/nuxt": "^10.9.0",
+    "fuse.js": "^7.0.0",
+    "nuxt": "^3.11.2"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^2.13.3",
+    "@iconify-json/simple-icons": "^1.1.99",
+    "@nuxt/devtools": "^1.1.5",
+    "eslint": "^8.57.0",
+    "lint-staged": "^15.2.2",
+    "simple-git-hooks": "^2.11.1",
+    "typescript": "^5.4.5",
+    "vue-tsc": "^2.0.12"
   }
 }
