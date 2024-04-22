@@ -1,6 +1,11 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: ["@nuxthub/core", "@nuxt/fonts", "@nuxt/ui", "@vueuse/nuxt"],
+  modules: [
+    "@nuxt/fonts",
+    "@nuxt/ui",
+    "@vueuse/nuxt",
+    "@nuxtjs/supabase",
+  ],
 
   app: {
     head: {
@@ -56,8 +61,25 @@ export default defineNuxtConfig({
     },
   },
 
-  hub: {
-    blob: true,
+  nitro: {
+    hooks: {
+      'dev:reload': () => { require('onnxruntime-node');}
+    }
+  },
+
+  vite: {
+    build: {
+      rollupOptions: {
+        external: ["sharp"]
+      }
+    }
+  },
+
+
+  supabase: {
+    redirect: false,
+    url: "https://beigydskymdtzhfhvlyj.supabase.co",
+    key: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJlaWd5ZHNreW1kdHpoZmh2bHlqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTM2NzY5OTgsImV4cCI6MjAyOTI1Mjk5OH0.j47DEuwm-OMaTS2CO0IFY6mjD51G0l8jg40bKdUG0Vo"
   },
 
   ui: {
