@@ -39,7 +39,7 @@ export default defineEventHandler(async (event) => {
   } as any);
 
   if (error) {
-    console.warn("Error fetching images!", error);
+    console.warn("Error fetching images", error);
     return { error: error };
   }
 
